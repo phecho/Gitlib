@@ -21,7 +21,9 @@ class DateTime extends \DateTime
     /**
      * @param string       $time     A date/time string.
      * @param DateTimeZone $timezone A DateTimeZone object representing the desired time zone.
+     *
      * @return DateTime A new DateTime instance.
+     *
      * @link http://php.net/manual/en/datetime.construct.php
      */
     public function __construct($time = 'now', \DateTimeZone $timezone = null)
@@ -33,7 +35,7 @@ class DateTime extends \DateTime
         }
 
         if ($this->isUnixTimestamp($time)) {
-            if (! $timezone) {
+            if (!$timezone) {
                 $timezone = new \DateTimeZone(date_default_timezone_get());
             }
 
@@ -45,6 +47,7 @@ class DateTime extends \DateTime
      * Checks if an UNIX timestamp is passed.
      *
      * @param string $time A date/time string.
+     *
      * @return bool Returns true if the $time parameter is a UNIX timestamp
      */
     protected function isUnixTimestamp($time)

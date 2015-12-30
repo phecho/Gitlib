@@ -128,7 +128,7 @@ class Blob
      */
     public function isBinary()
     {
-        return ! $this->isText();
+        return !$this->isText();
     }
 
     /**
