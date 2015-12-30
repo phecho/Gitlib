@@ -1,5 +1,6 @@
 build/
 vendor/
+.php_cs.cache
 .DS_Store
 .Spotlight-V100
 .Trashes
