@@ -19,18 +19,18 @@ class CommitTest extends \PHPUnit_Framework_TestCase
     public function testImportData()
     {
         $data = [
-            'hash' => '209908f247194b1adc836f2e50f957cb1f11f41c',
-            'short_hash' => '209908f',
-            'tree' => '0a1f6638ccfc6d6b34be8a913144304355d23cc3',
-            'parents' => '6e6951114ccf7b162e2a57b0462b39ca972f476f 1e8fd833f71fd20f8b176c79c705b9f096434126',
-            'author' => 'The Author',
-            'author_email' => 'author@example.com',
-            'date' => '1347372763',
-            'commiter' => 'The Commiter',
+            'hash'           => '209908f247194b1adc836f2e50f957cb1f11f41c',
+            'short_hash'     => '209908f',
+            'tree'           => '0a1f6638ccfc6d6b34be8a913144304355d23cc3',
+            'parents'        => '6e6951114ccf7b162e2a57b0462b39ca972f476f 1e8fd833f71fd20f8b176c79c705b9f096434126',
+            'author'         => 'The Author',
+            'author_email'   => 'author@example.com',
+            'date'           => '1347372763',
+            'commiter'       => 'The Commiter',
             'commiter_email' => 'commiter@example.com',
-            'commiter_date' => '1347372763',
-            'message' => 'Test commit',
-            'body' => 'Test body',
+            'commiter_date'  => '1347372763',
+            'message'        => 'Test commit',
+            'body'           => 'Test body',
         ];
         $commit = new Commit();
         $commit->importData($data);

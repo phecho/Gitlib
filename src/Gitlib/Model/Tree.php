@@ -50,7 +50,7 @@ class Tree extends Object implements \RecursiveIterator
 
             if ($file[0] == '120000') {
                 $show = $this->getRepository()->getClient()->run($this->getRepository(), 'show '.$file[2]);
-                $tree = new Symlink;
+                $tree = new Symlink();
                 $tree->setMode($file[0]);
                 $tree->setName($file[4]);
                 $tree->setPath($show);

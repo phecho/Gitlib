@@ -179,7 +179,7 @@ class Commit extends Object
 
     public function getChangedFiles()
     {
-        return sizeof($this->diffs);
+        return count($this->diffs);
     }
 
     public function isCommit()

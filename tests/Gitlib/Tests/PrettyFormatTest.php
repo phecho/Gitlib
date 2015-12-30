@@ -52,7 +52,7 @@ class PrettyFormatTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsNotParsingWithoutData()
     {
-        $format = new PrettyFormat;
+        $format = new PrettyFormat();
         $format->parse('');
     }
 }

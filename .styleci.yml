@@ -1,0 +1,16 @@
+preset: laravel
+
+linting: true
+
+enabled:
+  - ordered_use
+
+disabled:
+
+finder:
+  exclude:
+    - "bootstrap/cache"
+    - "storage"
+    - "vendor"
+  name:
+    - "*.php"
