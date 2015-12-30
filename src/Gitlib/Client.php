@@ -20,7 +20,7 @@ class Client
 
     public function __construct($path = null)
     {
-        if (!$path) {
+        if (! $path) {
             $finder = new ExecutableFinder();
             $path = $finder->find('git', '/usr/bin/git');
         }
@@ -37,7 +37,7 @@ class Client
      */
     public function createRepository($path, $bare = null)
     {
-        if (file_exists($path.'/.git/HEAD') && !file_exists($path.'/HEAD')) {
+        if (file_exists($path.'/.git/HEAD') && ! file_exists($path.'/HEAD')) {
             throw new \RuntimeException('A GIT repository already exists at '.$path);
         }
 
@@ -55,7 +55,7 @@ class Client
      */
     public function getRepository($path)
     {
-        if (!file_exists($path) || !file_exists($path.'/.git/HEAD') && !file_exists($path.'/HEAD')) {
+        if (! file_exists($path) || ! file_exists($path.'/.git/HEAD') && ! file_exists($path.'/HEAD')) {
             throw new \RuntimeException('There is no GIT repository at '.$path);
         }
 
@@ -72,7 +72,7 @@ class Client
         $process->setTimeout(180);
         $process->run();
 
-        if (!$process->isSuccessful()) {
+        if (! $process->isSuccessful()) {
             throw new \RuntimeException($process->getErrorOutput());
         }
 
@@ -90,7 +90,7 @@ class Client
         $process = new Process($this->getPath().' --version');
         $process->run();
 
-        if (!$process->isSuccessful()) {
+        if (! $process->isSuccessful()) {
             throw new \RuntimeException($process->getErrorOutput());
         }
 

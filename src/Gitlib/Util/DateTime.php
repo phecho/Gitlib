@@ -35,7 +35,7 @@ class DateTime extends \DateTime
         }
 
         if ($this->isUnixTimestamp($time)) {
-            if (!$timezone) {
+            if (! $timezone) {
                 $timezone = new \DateTimeZone(date_default_timezone_get());
             }
 

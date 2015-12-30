@@ -98,7 +98,7 @@ class Repository
      */
     public function addStatistics($statistics)
     {
-        if (!is_array($statistics)) {
+        if (! is_array($statistics)) {
             $statistics = [$statistics];
         }
 
@@ -479,7 +479,7 @@ class Repository
                 }
             }
 
-            if (!empty($log)) {
+            if (! empty($log)) {
                 switch ($log[0]) {
                     case '@':
                         // Set the line numbers
@@ -549,7 +549,7 @@ class Repository
 
         // Otherwise, return the first existing branch.
         $branches = $this->getBranches();
-        if (!empty($branches)) {
+        if (! empty($branches)) {
             return current($branches);
         }
 

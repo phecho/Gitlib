@@ -18,7 +18,7 @@ class Line extends AbstractModel
 
     public function __construct($data)
     {
-        if (!empty($data)) {
+        if (! empty($data)) {
             if ($data[0] == '@') {
                 $this->setType('chunk');
             }

@@ -34,14 +34,14 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $fs = new Filesystem();
         $fs->mkdir(self::$tmpdir);
 
-        if (!is_writable(self::$tmpdir)) {
+        if (! is_writable(self::$tmpdir)) {
             $this->markTestSkipped('There are no write permissions in order to create test repositories.');
         }
     }
 
     public function setUp()
     {
-        if (!is_writable(self::$tmpdir)) {
+        if (! is_writable(self::$tmpdir)) {
             $this->markTestSkipped('There are no write permissions in order to create test repositories.');
         }
 

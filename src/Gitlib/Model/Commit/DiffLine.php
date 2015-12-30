@@ -22,7 +22,7 @@ class DiffLine extends Line
     {
         parent::__construct($data);
 
-        if (!empty($data)) {
+        if (! empty($data)) {
             switch ($data[0]) {
                 case '@':
                     $this->numOld = '...';
