@@ -15,7 +15,7 @@ use Gitlib\Model\Commit\Commit;
 use Gitlib\Util\Collection;
 
 /**
- * Aggregate statistics based on day
+ * Aggregate statistics based on day.
  */
 class Day extends Collection implements StatisticsInterface
 {

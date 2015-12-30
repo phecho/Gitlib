@@ -15,7 +15,7 @@ use Gitlib\Model\Commit\Commit;
 use Gitlib\Util\Collection;
 
 /**
- * Aggregate statistics based on hour
+ * Aggregate statistics based on hour.
  */
 class Hour extends Collection implements StatisticsInterface
 {

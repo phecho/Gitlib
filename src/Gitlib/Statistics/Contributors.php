@@ -15,7 +15,7 @@ use Gitlib\Model\Commit\Commit;
 use Gitlib\Util\Collection;
 
 /**
- * Aggregate statistics based on contributor
+ * Aggregate statistics based on contributor.
  */
 class Contributors extends Collection implements StatisticsInterface
 {
@@ -27,8 +27,8 @@ class Contributors extends Collection implements StatisticsInterface
         $email = $commit->getAuthor()->getEmail();
         $commitDate = $commit->getCommiterDate()->format('Y-m-d');
 
-        if (! isset($this->items[$email])) {
-            $this->items[$email] = new Collection;
+        if (!isset($this->items[$email])) {
+            $this->items[$email] = new Collection();
         }
 
         $this->items[$email]->items[$commitDate][] = $commit;

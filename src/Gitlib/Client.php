@@ -20,7 +20,7 @@ class Client
 
     public function __construct($path = null)
     {
-        if (! $path) {
+        if (!$path) {
             $finder = new ExecutableFinder();
             $path = $finder->find('git', '/usr/bin/git');
         }
@@ -29,14 +29,15 @@ class Client
     }
 
     /**
-     * Creates a new repository on the specified path
+     * Creates a new repository on the specified path.
      *
-     * @param  string     $path Path where the new repository will be created
+     * @param string $path Path where the new repository will be created
+     *
      * @return Repository Instance of Repository
      */
     public function createRepository($path, $bare = null)
     {
-        if (file_exists($path.'/.git/HEAD') && ! file_exists($path.'/HEAD')) {
+        if (file_exists($path.'/.git/HEAD') && !file_exists($path.'/HEAD')) {
             throw new \RuntimeException('A GIT repository already exists at '.$path);
         }
 
@@ -46,14 +47,15 @@ class Client
     }
 
     /**
-     * Opens a repository at the specified path
+     * Opens a repository at the specified path.
      *
-     * @param  string     $path Path where the repository is located
+     * @param string $path Path where the repository is located
+     *
      * @return Repository Instance of Repository
      */
     public function getRepository($path)
     {
-        if (! file_exists($path) || ! file_exists($path.'/.git/HEAD') && ! file_exists($path.'/HEAD')) {
+        if (!file_exists($path) || !file_exists($path.'/.git/HEAD') && !file_exists($path.'/HEAD')) {
             throw new \RuntimeException('There is no GIT repository at '.$path);
         }
 
@@ -70,7 +72,7 @@ class Client
         $process->setTimeout(180);
         $process->run();
 
-        if (! $process->isSuccessful()) {
+        if (!$process->isSuccessful()) {
             throw new \RuntimeException($process->getErrorOutput());
         }
 
@@ -88,7 +90,7 @@ class Client
         $process = new Process($this->getPath().' --version');
         $process->run();
 
-        if (! $process->isSuccessful()) {
+        if (!$process->isSuccessful()) {
             throw new \RuntimeException($process->getErrorOutput());
         }
 
@@ -98,7 +100,7 @@ class Client
     }
 
     /**
-     * Get the current Git binary path
+     * Get the current Git binary path.
      *
      * @return string Path where the Git binary is located
      */
@@ -108,7 +110,7 @@ class Client
     }
 
     /**
-     * Set the current Git binary path
+     * Set the current Git binary path.
      *
      * @param string $path Path where the Git binary is located
      */
