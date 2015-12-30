@@ -113,7 +113,7 @@ class Repository
      *
      * @return array
      */
-    public function getStatistics()
+    public function getStatistics($branch = null)
     {
         if ($this->getCommitsHaveBeenParsed() === false) {
             $this->getCommits();
