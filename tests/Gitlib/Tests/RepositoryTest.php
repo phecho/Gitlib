@@ -190,7 +190,7 @@ class RepositoryTest extends \PHPUnit_Framework_TestCase
         $repository->checkout($hash);
         $new_branch = $repository->getCurrentBranch();
 
-        $this->assertContains('(HEAD detached at', $new_branch);
+        $this->assertRegExp('/HEAD detached at/', $new_branch);
 
         $repository->checkout($branch);
     }
