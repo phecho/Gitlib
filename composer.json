@@ -1,0 +1,30 @@
+{
+    "name": "phecho/gitlib",
+    "description": "Gitlib allows you to interact in an object oriented manner with Git repositories.",
+    "keywords": ["git", "gitamin"],
+    "homepage": "https://gitamin.com/",
+    "type": "library",
+    "authors": [
+        {
+            "name": "The Gitamin Team",
+            "email": "support@gitamin.com",
+            "homepage": "http://www.gitamin.com/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "symfony/process": ">=2.2"
+    },
+    "require-dev": {
+        "symfony/filesystem": ">=2.2",
+        "phpunit/phpunit": ">=4.8.9",
+        "mockery/mockery": "0.9.1"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-0": {
+            "Gitlib": "src/"
+        }
+    }
+}
