@@ -10,7 +10,7 @@
  */
 
 return [
-    'defaultTypes' = [
+    'defaultTypes' => [
         'php'      => 'php',
         'c'        => 'clike',
         'h'        => 'clike',
@@ -98,7 +98,7 @@ return [
         'csproj'   => 'xml',
     ],
 
-    'binaryTypes' = [
+    'binaryTypes' => [
         'exe', 'com', 'so', 'la', 'o', 'dll', 'pyc',
         'jpg', 'jpeg', 'bmp', 'gif', 'png', 'xmp', 'pcx', 'svgz', 'ttf', 'tiff', 'oet',
         'gz', 'tar', 'rar', 'zip', '7z', 'jar', 'class',
