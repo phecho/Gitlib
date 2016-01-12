@@ -582,7 +582,7 @@ class Repository
     public function getTree($tree)
     {
         $tree = new Tree($tree, $this);
-        $tree->parse();
+        $tree->initialize();
 
         return $tree;
     }

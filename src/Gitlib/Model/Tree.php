@@ -19,6 +19,7 @@ class Tree extends Object implements \RecursiveIterator
     protected $name;
     protected $data;
     protected $position = 0;
+    protected $isInitialized = false;
 
     public function __construct($hash, Repository $repository)
     {
@@ -26,8 +27,12 @@ class Tree extends Object implements \RecursiveIterator
         $this->setRepository($repository);
     }
 
-    public function parse()
+    public function initialize()
     {
+        if (true === $this->isInitialized) {
+            return;
+        }
+
         $data = $this->getRepository()->getClient()->run($this->getRepository(), 'ls-tree -lz '.$this->getHash());
         $lines = explode("\0", $data);
         $files = [];
@@ -74,9 +79,10 @@ class Tree extends Object implements \RecursiveIterator
         }
 
         $this->data = $root;
+        $this->isInitialized = true;
     }
 
-    public function output()
+    public function getEntries()
     {
         $files = $folders = [];
 
