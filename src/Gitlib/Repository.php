@@ -676,6 +676,12 @@ class Repository
         return $this;
     }
 
+
+    public function run($command)
+    {
+        return $this->client->run($this, $command);
+    }
+
     /**
      * Get and parse the output of a git command with a XML-based pretty format.
      *

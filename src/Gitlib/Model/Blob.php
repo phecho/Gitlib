@@ -59,7 +59,7 @@ class Blob
     public function getContent()
     {
         if (null === $this->content) {
-            $this->content = $this->repository->getClient()->run($this->repository, 'show '.$this->hash);
+            $this->content = $this->repository->run('show '.$this->hash);
         }
 
         return $this->content;
