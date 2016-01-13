@@ -35,8 +35,7 @@ class Tree extends Object implements \RecursiveIterator
 
         $data = $this->getRepository()->getClient()->run($this->getRepository(), 'ls-tree -lz '.$this->getHash());
         $lines = explode("\0", $data);
-        $files = [];
-        $root = [];
+        $files = $root = [];
 
         foreach ($lines as $key => $line) {
             if (empty($line)) {
@@ -84,44 +83,33 @@ class Tree extends Object implements \RecursiveIterator
 
     public function getEntries()
     {
-        $files = $folders = [];
+        $folders = $files = [];
 
         foreach ($this as $node) {
+            $entry['name'] = $node->getName();
+            $entry['mode'] = $node->getMode();
+
             if ($node instanceof Blob) {
-                $file['type'] = 'blob';
-                $file['name'] = $node->getName();
-                $file['size'] = $node->getSize();
-                $file['mode'] = $node->getMode();
-                $file['hash'] = $node->getHash();
-                $files[] = $file;
-                continue;
-            }
-
-            if ($node instanceof self) {
-                $folder['type'] = 'folder';
-                $folder['name'] = $node->getName();
-                $folder['size'] = '';
-                $folder['mode'] = $node->getMode();
-                $folder['hash'] = $node->getHash();
-                $folders[] = $folder;
-                continue;
-            }
-
-            if ($node instanceof Symlink) {
-                $folder['type'] = 'symlink';
-                $folder['name'] = $node->getName();
-                $folder['size'] = '';
-                $folder['mode'] = $node->getMode();
-                $folder['hash'] = '';
-                $folder['path'] = $node->getPath();
-                $folders[] = $folder;
+                $entry['type'] = 'blob';
+                $entry['size'] = $node->getSize();
+                $entry['hash'] = $node->getHash();
+                $files[] = $entry;
+            } elseif ($node instanceof self) {
+                $entry['type'] = 'folder';
+                $entry['size'] = '';
+                $entry['hash'] = $node->getHash();
+                $folders[] = $entry;
+            } elseif ($node instanceof Symlink) {
+                $entry['type'] = 'symlink';
+                $entry['size'] = '';
+                $entry['hash'] = '';
+                $entry['path'] = $node->getPath();
+                $folders[] = $entry;
             }
         }
 
         // Little hack to make folders appear before files
-        $files = array_merge($folders, $files);
-
-        return $files;
+        return array_merge($folders, $files);
     }
 
     public function valid()
