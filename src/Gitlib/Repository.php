@@ -676,7 +676,6 @@ class Repository
         return $this;
     }
 
-
     public function run($command)
     {
         return $this->client->run($this, $command);
